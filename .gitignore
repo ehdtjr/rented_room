@@ -1,0 +1,4 @@
+/.env
+/data
+/layoutparse
+/pre_processing/faiss_db
