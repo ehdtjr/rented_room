@@ -18,9 +18,9 @@ place_type = {
     "back_gate": "후문",
     "main_gate": "정문",
     "middle_gate": "중문",
-    "dormitory": "기숙사 근처",
-    "education_culture_center": "교육문화회관 뒤",
-    "farming_mart": "농가마트 근처",
+    "dormitory": "기숙사",
+    "education_culture_center": "교육문화회관",
+    "farming_mart": "농가마트",
 }
 
 
