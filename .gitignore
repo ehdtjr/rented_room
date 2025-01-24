@@ -1,4 +1,7 @@
 /.env
 /data
+/data/*
 /layoutparse
+/pre_processing/faiss_db
+/pre_processing/chroma_db
 /pre_processing/faiss_db
