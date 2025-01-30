@@ -5,3 +5,5 @@
 /pre_processing/faiss_db
 /pre_processing/chroma_db
 /pre_processing/faiss_db
+/backend/chroma_db
+/backend/.env

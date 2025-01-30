@@ -1,0 +1,16 @@
+name: rented_room
+
+services:
+  rented_room:
+    container_name: rented_room          # 컨테이너 이름을 "rented_room" 으로 고정
+    image: rented_room:latest            # 빌드된 이미지 이름을 "rented_room:latest" 로 지정
+    build:
+      context: .                         # 현재 디렉토리를 빌드 컨텍스트로 설정
+      dockerfile: Dockerfile             # 사용할 Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/backend
+    volumes:
+      - .:/backend                       # 현재 디렉토리를 컨테이너의 /backend로 마운트
+    # working_dir: /backend
