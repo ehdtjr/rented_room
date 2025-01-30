@@ -1,7 +1,7 @@
 # app/services/vectorstore.py
 from langchain_chroma import Chroma
 from langchain_openai.embeddings import OpenAIEmbeddings
-from app.core.config import settings
+from core.config import settings
 
 def get_vectorstore() -> Chroma:
     """Chroma VectorStore 인스턴스를 생성/반환합니다."""

@@ -10,7 +10,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - PYTHONPATH=/backend
+      - PYTHONPATH=/backend/app
     volumes:
       - .:/backend                       # 현재 디렉토리를 컨테이너의 /backend로 마운트
     # working_dir: /backend

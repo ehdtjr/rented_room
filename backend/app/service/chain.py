@@ -3,18 +3,18 @@
 import os
 from pathlib import Path
 
-from app.service.retriever import get_self_query_retriever
+from service.retriever import get_self_query_retriever
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import load_prompt
 from langchain.schema.runnable import RunnableMap, RunnableSequence
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
-from app.core.config import settings
+from core.config import settings
 
 
 def get_rag_chain():
     # 1) self query retriever
-    retriever = get_self_query_retriever()
+    # retriever = get_self_query_retriever()
 
     # 2) 현재 파일( chain.py )을 기준으로 절대 경로 산출
     CURRENT_FILE = Path(__file__).resolve()  # chain.py의 절대 경로
@@ -33,7 +33,7 @@ def get_rag_chain():
 
     # 5) Runnable 체인 정의
     chain = (
-        {"context": retriever, "question": RunnablePassthrough()}
+        {"context": {}, "question": RunnablePassthrough()}
         | prompt_template
         | llm
         | StrOutputParser()

@@ -16,8 +16,8 @@ from langchain.schema.runnable import Runnable
 from langchain.retrievers.self_query.base import SelfQueryRetriever
 from langchain.retrievers.self_query.chroma import ChromaTranslator
 
-from app.service.vectorstore import get_vectorstore
-from app.core.config import settings
+from service.vectorstore import get_vectorstore
+from core.config import settings
 
 # 1) 메타데이터 필드 정보 정의
 metadata_field_info = [
@@ -108,8 +108,7 @@ prompt_template = get_query_constructor_prompt(
 query_constructor = prompt_template | llm | output_parser | filter_transform
 
 
-def get_self_query_retriever():
-    vectorstore = get_vectorstore()
+def get_self_query_retriever(vectorstore):
     retriever = SelfQueryRetriever(
         query_constructor=query_constructor,
         vectorstore=vectorstore,
