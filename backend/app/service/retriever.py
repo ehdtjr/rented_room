@@ -107,12 +107,13 @@ prompt_template = get_query_constructor_prompt(
 # 6) chain
 query_constructor = prompt_template | llm | output_parser | filter_transform
 
+vectorstore = get_vectorstore()
 
-def get_self_query_retriever(vectorstore):
+def get_self_query_retriever():
     retriever = SelfQueryRetriever(
         query_constructor=query_constructor,
         vectorstore=vectorstore,
         structured_query_translator=ChromaTranslator(),
-        search_kwargs={"k": 10},
+        search_kwargs={"k": 5},
     )
     return retriever

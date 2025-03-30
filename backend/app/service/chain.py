@@ -12,9 +12,9 @@ from langchain_openai import ChatOpenAI
 from core.config import settings
 
 
-def get_rag_chain():
+def get_rag_chain(query : str):
     # 1) self query retriever
-    # retriever = get_self_query_retriever()
+    retriever = get_self_query_retriever()
 
     # 2) 현재 파일( chain.py )을 기준으로 절대 경로 산출
     CURRENT_FILE = Path(__file__).resolve()  # chain.py의 절대 경로
@@ -41,7 +41,8 @@ def get_rag_chain():
     return chain
 
 
-def rag_pipeline(question: str) -> str:
-    chain = get_rag_chain()
-    answer = chain.invoke(question)
+def rag_pipeline(query: str) -> str:
+    chain = get_rag_chain(query)
+    # chain = get_self_query_retriever()
+    answer = chain.invoke(query)
     return answer
